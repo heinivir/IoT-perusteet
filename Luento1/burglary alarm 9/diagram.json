@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-pi-pico-w",
+      "id": "pico",
+      "top": 0,
+      "left": 0,
+      "attrs": { "env": "micropython-20241129-v1.24.1" }
+    },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir1", "top": -92, "left": 127.02, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 236.4,
+      "left": 23,
+      "rotate": 180,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 234.35,
+      "left": -38.4,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "pico:3V3", "pir1:VCC", "green", [ "h90.26", "v-12.85" ] ],
+    [ "pico:GP28", "pir1:OUT", "green", [ "h0" ] ],
+    [ "pico:GP20", "pir1:GND", "black", [ "h0" ] ],
+    [ "led1:C", "pico:GND.8", "green", [ "v-23.6", "h48", "v-192" ] ],
+    [ "r1:2", "led1:A", "green", [ "v0" ] ],
+    [ "r1:1", "pico:GP15", "green", [ "v-48" ] ]
+  ],
+  "dependencies": {}
+}
